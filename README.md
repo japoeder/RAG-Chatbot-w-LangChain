@@ -2,39 +2,11 @@
 
 ### Project Introduction
 
-Welcome to my GitHub repository where I am pioneering a state-of-the-art chatbot tailored specifically for a large hospital network. This project harnesses the power of large language models (LLMs) and retrieval-augmented generation (RAG) technologies to craft a sophisticated communication tool that enhances data accessibility and management within healthcare settings.
+Welcome to my GitHub repository where I create a state-of-the-art chatbot tailored specifically for a large hospital network. This project harnesses the power of large language models (LLMs) and retrieval-augmented generation (RAG) technologies to craft a sophisticated communication tool that enhances data accessibility and management within healthcare settings.
 
 My goal is to capitalize on the impressive capabilities demonstrated by LLMs, such as those seen in OpenAI's ChatGPT, to improve interactions within the hospital environment. By integrating the LangChain library, this chatbot can adeptly navigate and utilize data from Neo4j databases, providing crucial information on patients, medical staff, and hospital operations.
 
 This chatbot is engineered to benefit various stakeholders within the hospital system—facilitating patients with inquiries about services and treatments, and aiding staff with streamlined administrative processes. Through a conversational interface, the chatbot delivers quick access to comprehensive contextual information, thereby enhancing operational efficiency and elevating patient care quality.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 This portfolio is a compilation of all the AI/ML data science projects I have done for academic and self-learning purposes. Note that it also contains achievements, skills, and certificates. Finally, please feel free to check back often as it is updated on the regular basis.
 

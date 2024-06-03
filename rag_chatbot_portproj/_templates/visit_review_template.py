@@ -2,6 +2,9 @@
 Template for the visit review chatbot
 """
 
+import dotenv
+from langchain_openai import ChatOpenAI
+from langchain_core.output_parsers import StrOutputParser
 from langchain.prompts import (
     PromptTemplate,
     SystemMessagePromptTemplate,
@@ -10,9 +13,9 @@ from langchain.prompts import (
 )
 
 
-def visit_review_template():
+def visit_review_template_base():
     """
-    Returns a prompt template for the visit review chatbot
+    Returns a base messages prompt template for the visit review chatbot
     """
 
     review_system_template_str = """Your job is to use patient
@@ -41,3 +44,48 @@ def visit_review_template():
         input_variables=["context", "question"],
         messages=messages,
     )
+
+
+def visit_review_template_chain():
+    """
+    Returns a prompt template for the visit review chatbot
+    """
+
+    dotenv.load_dotenv()
+
+    review_template_str = """Your job is to use patient
+    reviews to answer questions about their experience at
+    a hospital. Use the following context to answer questions.
+    Be as detailed as possible, but don't make up any information
+    that's not from the context. If you don't know an answer, say
+    you don't know.
+
+    {context}
+    """
+
+    review_system_prompt = SystemMessagePromptTemplate(
+        prompt=PromptTemplate(
+            input_variables=["context"],
+            template=review_template_str,
+        )
+    )
+
+    review_human_prompt = HumanMessagePromptTemplate(
+        prompt=PromptTemplate(
+            input_variables=["question"],
+            template="{question}",
+        )
+    )
+    messages = [review_system_prompt, review_human_prompt]
+
+    review_prompt_template = ChatPromptTemplate(
+        input_variables=["context", "question"],
+        messages=messages,
+    )
+
+    chat_model = ChatOpenAI(model="gpt-3.5-turbo-0125", temperature=0)
+    output_parser = StrOutputParser()
+
+    review_chain = review_prompt_template | chat_model | output_parser
+
+    return review_chain
