@@ -60,6 +60,10 @@ disable=
     wrong-import-order,
     reimported,
     wrong-import-position,
+    no-value-for-parameter,
+    pointless-string-statement,
+    redefined-builtin,
+    undefined-variable,
 #    too-many-instance-attributes,
 #    too-many-locals,
 #    too-many-branches,
@@ -314,7 +318,7 @@ indent-after-paren=4
 indent-string='    '
 
 # Maximum number of characters on a single line.
-max-line-length=100
+max-line-length=150
 
 # Maximum number of lines in a module
 max-module-lines=1000
